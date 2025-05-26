@@ -1,0 +1,167 @@
+
+        /* Carica il font da file locale */
+        @font-face {
+            font-family: 'Grandstander';
+            src: url('src/Grandstander-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('src/background.png');
+            font-family: 'Arial', sans-serif;
+            /* Usa il font Grandstander */
+            position: relative;
+            overflow: hidden;
+        }
+
+        #word {
+            font-size: 50px;
+            /* Increases font size for better visibility */
+            color: white;
+            /* Inizialmente la parola è bianca */
+            font-family: 'Grandstander', sans-serif;
+            /* Usa il font Grandstander */
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: drop var(--drop-animation) forwards, shake 5s ease-in-out 3;
+            /* Add shake effect */
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Light transparent background */
+            border-radius: 10px;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            /* Border of the box */
+        }
+
+        /* Le altre regole CSS rimangono uguali */
+        @keyframes drop {
+            to {
+                top: calc(100% - 80px);
+                left: calc(50%);
+            }
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(-50%) rotate(0deg);
+            }
+
+            25% {
+                transform: translateX(-50%) rotate(5deg);
+            }
+
+            50% {
+                transform: translateX(-50%) rotate(-5deg);
+            }
+
+            75% {
+                transform: translateX(-50%) rotate(5deg);
+            }
+
+            100% {
+                transform: translateX(-50%) rotate(0deg);
+            }
+        }
+
+        #timer {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #score {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #5cb85c;
+            transition: transform 0.3s ease;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Light transparent background */
+            border-radius: 10px;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            /* Border of the box */
+        }
+
+        #restartButton {
+            display: none;
+            margin-top: 80px;
+            padding: 10px 20px;
+            font-size: 20px;
+            color: white;
+            background-color: #FF0000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #restartPauseButton {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            font-size: 20px;
+            color: white;
+            background-color: #d9534f;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #heart {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            color: #e74c3c;
+        }
+
+        .blurred {
+            filter: blur(5px);
+        }
+
+        .glow {
+            font-size: 50px;
+            color: #fff;
+            text-align: center;
+            -webkit-animation: glow 1s ease-in-out infinite alternate;
+            -moz-animation: glow 1s ease-in-out infinite alternate;
+            animation: glow 1s ease-in-out infinite alternate;
+
+        }
+
+        @-webkit-keyframes glow {
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffff00, 0 0 40px #ffff00, 0 0 50px #ffff00, 0 0 60px #ffff00, 0 0 70px #ffff00;
+            }
+        }
+		
+		@keyframes moveBulletToWord {
+    0% {
+        left: var(--start-x);
+        top: var(--start-y);
+		transform: var(--transform);
+		transformOrigin: var(--transform-origin);
+    }
+    100% {
+        left: var(--end-x);
+        top: var(--end-y);
+		transform: var(--transform);
+		transformOrigin: var(--transform-origin);
+    }
+	
+	
+
+}
+	
